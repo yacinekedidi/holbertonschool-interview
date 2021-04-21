@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-lockboxes fucntion
+lockboxes function
 """
 
 
