@@ -2,7 +2,6 @@
 
 
 def canUnlockAll(boxes):
-    """determines if all the boxes can be opened"""
     if len(boxes) <= 1:
         return True
     keys = [0]
