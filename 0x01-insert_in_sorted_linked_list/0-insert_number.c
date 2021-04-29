@@ -16,11 +16,18 @@ new = malloc(sizeof(listint_t));
 if (!new)
 return (NULL);
 
+if (!*head || (*head)->n > number)
+{
+	new->next = *head;
+	*head = new;
+	return (new);
+}
+
 new->n = number;
 
 while (p->next)
 {
-if (p->next->n > number)
+if (p->next->n >= number)
 break;
 p = p->next;
 }
