@@ -15,6 +15,7 @@ listint_t *new, *p = *head, *tmp;
 new = malloc(sizeof(listint_t));
 if (!new)
 return (NULL);
+new->n = number;
 
 if (!*head || (*head)->n > number)
 {
@@ -23,7 +24,7 @@ if (!*head || (*head)->n > number)
 	return (new);
 }
 
-new->n = number;
+
 
 while (p->next)
 {
