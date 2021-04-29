@@ -14,21 +14,21 @@ listint_t *new, *p = *head;
 
 new = malloc(sizeof(listint_t));
 if (!new)
-return (NULL);
+	return (NULL);
 new->n = number;
 
 if (!*head || (*head)->n > number)
 {
-new->next = *head;
-*head = new;
-return (new);
+	new->next = *head;
+	*head = new;
+	return (new);
 }
 
 while (p->next)
 {
-if (p->next->n >= number)
-break;
-p = p->next;
+	if (p->next->n >= number)
+		break;
+	p = p->next;
 }
 new->next = p->next;
 p->next = new;
