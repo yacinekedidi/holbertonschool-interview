@@ -19,6 +19,7 @@ int checksame(int grid[3][3])
 
 	}
 }
+
 return (1);
 }
 
@@ -52,7 +53,7 @@ void print_sandpile(int grid[3][3])
  *
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
-{int i, j, x = 0;
+{int i, j, f, x = 0;
 for (i = 0; i < 3; i++)
 {
 	for (j = 0; j < 3; j++)
@@ -64,9 +65,9 @@ for (i = 0; i < 3; i++)
 }
 if (x == 0)
 	return;
-
-while (x == 1)
-{x = 0;
+f = 1;
+while (f == 1)
+{f = 0;
 	if (checksame(grid1) == 1)
 		return;
 	if (grid1[0][0] == grid1[0][2]
@@ -79,7 +80,7 @@ for (i = 0; i < 3; i++)
 	{
 		if (grid1[i][j] > 3)
 		{
-			x = 1;
+			f = 1;
 			grid1[i][j] -= 4;
 			if (i + 1 < 3)
 				grid1[i + 1][j] += 1;
@@ -89,6 +90,4 @@ for (i = 0; i < 3; i++)
 				grid1[i - 1][j] += 1;
 			if (j - 1 > -1)
 				grid1[i][j - 1] += 1;
-}}print_sandpile(grid1);}}}
-
-
+}}}}}
