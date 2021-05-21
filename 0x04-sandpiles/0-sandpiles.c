@@ -86,10 +86,8 @@ if (x == 0)
 while (x == 1)
 {
 	x = 0;
-	if (grid1[0][0] == grid1[0][2]
-	&& grid1[0][0] == grid1[2][0]
-	&& grid1[0][0] == grid1[2][2])
-		print_sandpile(grid1);
+
+	print_sandpile(grid1);
 
 	for (i = 0; i < 3; i++)
 	{
