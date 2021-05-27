@@ -17,8 +17,11 @@ int recursive(listint_t **head, listint_t *tail)
 		return (1);
 
 	isPalin = recursive(head, tail->next) && ((*head)->n == tail->n);
+	if (!isPalin)
+		return (0);
 
 	*head = (*head)->next;
+
 
 	return (isPalin);
 }
