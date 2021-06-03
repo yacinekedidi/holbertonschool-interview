@@ -37,7 +37,7 @@ try:
         l = line.split(' ')
 
         if l:
-            if len(l[-2] and l[-2].isdigit()):          
+            if len(l[-2]) and l[-2].isdigit():          
                 try:
                     status[l[-2]] += 1
                 except Exception:
