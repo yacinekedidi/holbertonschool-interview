@@ -35,7 +35,7 @@ try:
     for i, line in enumerate(sys.stdin, 1):
         list = line.split(' ')
 
-        if list:
+        if len(list):
             if len(list[-2]):
                 if (list[-2].isdigit()):
                     try:
