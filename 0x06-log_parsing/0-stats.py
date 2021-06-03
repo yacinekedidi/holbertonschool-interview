@@ -49,6 +49,5 @@ try:
         if i % 10 == 0:
             printStatus(status, sum)
 except KeyboardInterrupt:
-    raise
-finally:
     printStatus(status, sum)
+    raise
