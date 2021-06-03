@@ -31,19 +31,20 @@ status = {
     '500': 0,
 }
 sum = 0
-l = []
+list = []
 try:
     for i, line in enumerate(sys.stdin, 1):
-        l = line.split(' ')
+        list = line.split(' ')
 
-        if l:
-            if len(l[-2]) and l[-2].isdigit():          
-                try:
-                    status[l[-2]] += 1
-                except Exception:
-                    pass
+        if list:
+            if len(list[-2]):
+                if (list[-2].isdigit()):
+                    try:
+                        status[list[-2]] += 1
+                    except Exception:
+                        pass
             try:
-                sum += int(l[-1].replace('\n', ''))
+                sum += int(list[-1].replace('\n', ''))
             except Exception:
                 pass
         if i % 10 == 0:
