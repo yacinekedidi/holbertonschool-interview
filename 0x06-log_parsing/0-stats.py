@@ -7,12 +7,12 @@
 import sys
 
 
-def printStatus(status, sum):
+def printStatus(status, fileSize):
     """
     print the stats and size.
     """
     try:
-        print('File size: {}'.format(sum))
+        print('File size: {}'.format(fileSize))
         [print("{}: {}".format(k, v))
          for k, v in sorted(status.items()) if v != 0]
     except Exception:
@@ -29,22 +29,22 @@ status = {
     '405': 0,
     '500': 0,
 }
-sum = 0
-list = []
+fileSize = 0
+words = []
 try:
     for i, line in enumerate(sys.stdin, 1):
-        list = line.split(' ')
+        words = line.split(' ')
 
         try:
-            if (list[-2].isdigit()):
-                status[list[-2]] += 1
+            if (words[-2].isdigit()):
+                status[words[-2]] += 1
 
-            sum += int(list[-1].replace('\n', ''))
+            fileSize += int(words[-1].replace('\n', ''))
         except Exception:
             pass
         if i % 10 == 0:
-            printStatus(status, sum)
-    printStatus(status, sum)
+            printStatus(status, fileSize)
+    printStatus(status, fileSize)
 except KeyboardInterrupt:
-    printStatus(status, sum)
+    printStatus(status, fileSize)
     raise
