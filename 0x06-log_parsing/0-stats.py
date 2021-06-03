@@ -33,10 +33,8 @@ status = {
 sum = 0
 list = []
 try:
-    for i, line in enumerate(sys.stdin):
+    for i, line in enumerate(sys.stdin, 1):
         list = line.split(' ')
-        if sum and (i+1) % 10 == 1:
-            printStatus(status, sum)
         try:
             status[list[-2]] += 1
         except Exception:
@@ -45,6 +43,8 @@ try:
             sum += int(list[-1].replace('\n', ''))
         except Exception:
             pass
+        if i % 10 == 0:
+            printStatus(status, sum)
 except KeyboardInterrupt:
     printStatus(status, sum)
     raise
