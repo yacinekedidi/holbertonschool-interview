@@ -35,16 +35,14 @@ list = []
 try:
     for i, line in enumerate(sys.stdin, 1):
         list = line.split(' ')
-        try:
-            if len(list[-2]):
-                if (list[-2].isdigit()):
-                    status[list[-2]] += 1
-        except Exception:
-            pass
-        try:
-            sum += int(list[-1].replace('\n', ''))
-        except Exception:
-            pass
+        print(list)
+
+        if len(list[-2]):
+            if (list[-2].isdigit()):
+                status[list[-2]] += 1
+
+        sum += int(list[-1].replace('\n', ''))
+
         if i % 10 == 0:
             printStatus(status, sum)
 except KeyboardInterrupt:
