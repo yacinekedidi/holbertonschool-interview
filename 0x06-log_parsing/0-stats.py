@@ -5,7 +5,6 @@
 
 """
 import sys
-import signal
 argv = sys.argv
 
 
