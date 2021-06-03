@@ -36,16 +36,17 @@ try:
     for i, line in enumerate(sys.stdin, 1):
         list = line.split(' ')
 
-        if len(list[-2]):
-            if (list[-2].isdigit()):
-                try:
-                    status[list[-2]] += 1
-                except Exception:
-                    pass
-        try:
-            sum += int(list[-1].replace('\n', ''))
-        except Exception:
-            pass
+        if list:
+            if len(list[-2]):
+                if (list[-2].isdigit()):
+                    try:
+                        status[list[-2]] += 1
+                    except Exception:
+                        pass
+            try:
+                sum += int(list[-1].replace('\n', ''))
+            except Exception:
+                pass
         if i % 10 == 0:
             printStatus(status, sum)
 except KeyboardInterrupt:
