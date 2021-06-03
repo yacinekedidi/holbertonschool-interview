@@ -5,7 +5,6 @@
 
 """
 import sys
-argv = sys.argv
 
 
 def printStatus(status, sum):
