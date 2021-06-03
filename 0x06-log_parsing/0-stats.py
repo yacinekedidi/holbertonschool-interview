@@ -35,7 +35,6 @@ list = []
 try:
     for i, line in enumerate(sys.stdin, 1):
         list = line.split(' ')
-        print(list)
 
         if len(list[-2]):
             if (list[-2].isdigit()):
@@ -46,5 +45,6 @@ try:
         if i % 10 == 0:
             printStatus(status, sum)
 except KeyboardInterrupt:
+    pass
+finally:
     printStatus(status, sum)
-    raise
