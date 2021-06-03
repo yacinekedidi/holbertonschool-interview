@@ -38,7 +38,10 @@ try:
 
         if len(list[-2]):
             if (list[-2].isdigit()):
-                status[list[-2]] += 1
+                try:
+                    status[list[-2]] += 1
+                except Exception:
+                    pass
         try:
             sum += int(list[-1].replace('\n', ''))
         except Exception:
