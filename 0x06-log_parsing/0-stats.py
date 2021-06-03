@@ -36,7 +36,7 @@ try:
         words = line.split(' ')
 
         try:
-            if (words[-2].isdigit()):
+            if (words[-2].isdigit() and words[-2] in status.keys()):
                 status[words[-2]] += 1
 
             fileSize += int(words[-1].replace('\n', ''))
