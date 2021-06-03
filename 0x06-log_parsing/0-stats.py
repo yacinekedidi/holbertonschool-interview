@@ -39,9 +39,10 @@ try:
         if len(list[-2]):
             if (list[-2].isdigit()):
                 status[list[-2]] += 1
-
-        sum += int(list[-1].replace('\n', ''))
-
+        try:
+            sum += int(list[-1].replace('\n', ''))
+        except Exception:
+            pass
         if i % 10 == 0:
             printStatus(status, sum)
 except KeyboardInterrupt:
