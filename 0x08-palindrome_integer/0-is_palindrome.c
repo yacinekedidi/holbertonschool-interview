@@ -42,8 +42,7 @@ int is_palindrome(unsigned long n)
 
 	if (n < 10 && n >= 0)
 		return (1);
-	if (n < 0)
-		return (0);
+
 
 	for (i = 0, j = strlen(s) - 1; i < strlen(s); i++, j--)
 	{
