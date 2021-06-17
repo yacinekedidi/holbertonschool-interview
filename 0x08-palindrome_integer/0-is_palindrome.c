@@ -40,6 +40,11 @@ int is_palindrome(unsigned long n)
 	char *s = itoa(n, 10);
 	size_t i, j;
 
+	if (n < 10 && n >= 0)
+		return (1);
+	if (n < 0)
+		return (0);
+
 	for (i = 0, j = strlen(s) - 1; i < strlen(s); i++, j--)
 	{
 		if (s[i] != s[j])
