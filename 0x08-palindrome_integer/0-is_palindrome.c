@@ -40,7 +40,7 @@ int is_palindrome(unsigned long n)
 	char *s = itoa(n, 10);
 	size_t i, j;
 
-	if (n < 10 && n >= 0)
+	if (n < 10)
 		return (1);
 
 
