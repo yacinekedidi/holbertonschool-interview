@@ -15,7 +15,9 @@ def validUTF8(data):
     else:
         for i in binaryList[0]:
             if i == '1':
-                ones += 1
+                ones += 
+            else:
+                break
         if binaryList[0][ones+1] != 0:
             return False
         for i in binaryList[1:]:
