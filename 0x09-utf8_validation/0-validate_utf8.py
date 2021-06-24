@@ -18,7 +18,9 @@ def validUTF8(data):
             if bit == '0':
                 break
             ones += 1
-        if (ones > 4 or ones == 1) and character[ones+1] == '0':
+        if ones > 4 or ones == 1:
+            return False
+        if  character[ones+1] == '0':
             for byte in binaryList[1:]:
                 if  byte[:2] != '10':
                     return False
