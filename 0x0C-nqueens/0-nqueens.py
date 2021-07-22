@@ -5,6 +5,7 @@ argc = len(argv)
 
 
 def nqueens(num, row, res):
+    """Function"""
     if row == num:
         print(res)
     for col in range(num):
