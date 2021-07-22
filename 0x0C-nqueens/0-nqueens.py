@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """[summary]"""
 from sys import argv
 argc = len(argv)
