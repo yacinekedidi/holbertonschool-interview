@@ -9,8 +9,8 @@ def nqueens(num, row, res):
     if row == num:
         print(res)
     for col in range(num):
-        if all(col != c and r + c != row + col
-               and r - c != row - col for r, c in res):
+        if all(col != c and r + c != row + col and
+                r - c != row - col for r, c in res):
             res.append([row, col])
             nqueens(num, row + 1, res)
             res.remove([row, col])
