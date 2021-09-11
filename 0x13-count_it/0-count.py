@@ -20,7 +20,7 @@ def count_words(subreddit='', word_list=[], word_count={}, after=''):
         return
     r = response.json()
     data = r.get('data', {})
-    after = r.get("after", '')
+    after = data.get("after", '')
     articles = data.get("children", [])
     for article in articles:
         for word in word_list:
@@ -33,7 +33,7 @@ def count_words(subreddit='', word_list=[], word_count={}, after=''):
                 word_count[word] += how_many
 
     if not after:
-        if not sum(word_count.values()):
+        if not len(word_count.keys()):
             return
 
         words = [w for w in sorted(word_count.values())]
@@ -45,6 +45,6 @@ def count_words(subreddit='', word_list=[], word_count={}, after=''):
                     d[k] = v
         word_count = d
         [print("{}: {}".format(keyword, how_many))
-            for keyword, how_many in d.items()]
+            for keyword, how_many in word_count.items()]
     else:
         count_words(subreddit, word_list, word_count, after)
