@@ -12,7 +12,7 @@ def count_words(subreddit, word_list, word_count={}, after=''):
         word_count (dict, optional): [description]. Defaults to {}.
         after (str, optional): [description]. Defaults to ''.
     """
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json?limit=100".format(subreddit)
     headers = {'user-agent': 'yacinekedidi'}
     params = {'after': after}
     response = requests.get(url, headers=headers, params=params)
