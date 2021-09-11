@@ -25,10 +25,11 @@ def count_words(subreddit, word_list, word_count={}, after=''):
     for article in articles:
         for word in word_list:
             word = word.lower()
+            how_many = article.get("data").get("title").lower().count(word)
             if not word_count.get(word):
-                word_count[word] = 0
-            word_count[word] += \
-                article.get("data").get("title").lower().count(word)
+                word_count[word] = how_many
+            else:
+                word_count[word] += how_many
 
     if not after:
         if not sum(word_count.values()):
