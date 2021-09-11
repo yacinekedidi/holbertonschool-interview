@@ -1,3 +1,4 @@
+
 #!/usr/bin/python3
 """Module"""
 import requests
@@ -5,7 +6,6 @@ import requests
 
 def count_words(subreddit='', word_list=[], word_count={}, after=''):
     """[summary]
-
     Args:
         subreddit ([type]): [description]
         word_list ([type]): [description]
@@ -18,18 +18,22 @@ def count_words(subreddit='', word_list=[], word_count={}, after=''):
     response = requests.get(url, headers=headers, params=params)
     if response.status_code != 200 or not len(word_list):
         return
+    for idx, w in enumerate(word_list):
+        word_list[idx] = w.lower()
+    s = set(word_list)
+    word_list = list(s)
     r = response.json()
     data = r.get('data', {})
     after = data.get("after", '')
     articles = data.get("children", [])
     for article in articles:
+        title = article.get("data", {}).get("title", '').lower()
         for word in word_list:
             word = word.lower()
-            how_many =\
-                article.get("data", {}).get("title", '').lower().count(word)
+            how_many = title.count(word)
             if not word_count.get(word):
                 word_count[word] = how_many
-            else:
+            elif how_many:
                 word_count[word] += how_many
 
     if not after:
