@@ -19,7 +19,7 @@ def count_words(subreddit='', word_list=[], word_count={}, after=''):
     if response.status_code != 200 or not len(word_list):
         return
 
-    word_list = list(set([w.lower() for idx, w in enumerate(word_list)]))
+    #word_list = list(set([w.lower() for idx, w in enumerate(word_list)]))
     r = response.json()
     data = r.get('data', {})
     after = data.get("after", '')
@@ -27,6 +27,7 @@ def count_words(subreddit='', word_list=[], word_count={}, after=''):
     for article in articles:
         title = article.get("data", {}).get("title", '').lower()
         for word in word_list:
+            word = word.lower()
             how_many = title.count(word)
             if not word_count.get(word):
                 word_count[word] = how_many
