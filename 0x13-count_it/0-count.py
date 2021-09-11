@@ -1,8 +1,17 @@
 #!/usr/bin/python3
+"""Module"""
 import requests
 
 
 def count_words(subreddit, word_list, word_count={}, after=''):
+    """[summary]
+
+    Args:
+        subreddit ([type]): [description]
+        word_list ([type]): [description]
+        word_count (dict, optional): [description]. Defaults to {}.
+        after (str, optional): [description]. Defaults to ''.
+    """
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {'user-agent': 'yacinekedidi'}
     params = {'after': after}
