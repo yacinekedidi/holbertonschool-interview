@@ -3,7 +3,7 @@
 import requests
 
 
-def count_words(subreddit, word_list, word_count={}, after=''):
+def count_words(subreddit='', word_list=[], word_count={}, after=''):
     """[summary]
 
     Args:
@@ -19,13 +19,14 @@ def count_words(subreddit, word_list, word_count={}, after=''):
     if response.status_code != 200 or not len(word_list):
         return
     r = response.json()
-    data = r.get('data')
-    after = r.get("after")
-    articles = data.get("children")
+    data = r.get('data', {})
+    after = r.get("after", '')
+    articles = data.get("children", [])
     for article in articles:
         for word in word_list:
             word = word.lower()
-            how_many = article.get("data").get("title").lower().count(word)
+            how_many =\
+                article.get("data", {}).get("title", '').lower().count(word)
             if not word_count.get(word):
                 word_count[word] = how_many
             else:
@@ -42,6 +43,7 @@ def count_words(subreddit, word_list, word_count={}, after=''):
             for k, v in word_count.items():
                 if v == w and v != 0:
                     d[k] = v
+        word_count = d
         [print("{}: {}".format(keyword, how_many))
             for keyword, how_many in d.items()]
     else:
