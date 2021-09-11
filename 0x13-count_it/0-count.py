@@ -30,7 +30,7 @@ def count_words(subreddit, word_list, word_count={}, after=''):
         d = {}
         for w in words:
             for k, v in word_count.items():
-                if v == w:
+                if v == w and v != 0:
                     d[k] = v
         [print("{}: {}".format(keyword, how_many))
             for keyword, how_many in d.items()]
