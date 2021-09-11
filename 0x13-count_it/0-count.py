@@ -13,10 +13,11 @@ def count_words(subreddit, word_list, word_count={}, after=''):
     articles = data.get("children")
     for article in articles:
         for word in word_list:
+            word = word.lower()
             if not word_count.get(word):
                 word_count[word] = 0
             word_count[word] += \
-                article.get("data").get("title").lower().count(word.lower())
+                article.get("data").get("title").lower().count(word)
 
     if not after:
         if not len(word_count):
