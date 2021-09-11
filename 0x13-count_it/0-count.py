@@ -20,7 +20,7 @@ def count_words(subreddit, word_list, word_count={}, after=''):
                 article.get("data").get("title").lower().count(word)
 
     if not after:
-        if not len(word_count):
+        if not sum(word_count.values()):
             print()
             return
 
