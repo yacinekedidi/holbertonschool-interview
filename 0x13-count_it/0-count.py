@@ -21,7 +21,6 @@ def count_words(subreddit, word_list, word_count={}, after=''):
 
     if not after:
         if not sum(word_count.values()):
-            print()
             return
 
         words = [w for w in sorted(word_count.values())]
