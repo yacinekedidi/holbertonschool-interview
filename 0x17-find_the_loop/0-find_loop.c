@@ -7,31 +7,33 @@
  * @head: the head of the list
  * Return: Always.
  */
-listint_t *find_listint_loop(listint_t *head) {
-    listint_t *hare, *turtle;
-    if (!head)
-        return (NULL);
+listint_t *find_listint_loop(listint_t *head)
+{
+	listint_t *hare, *turtle;
 
-    turtle = head;
-    hare = head;
+	if (!head)
+		return (NULL);
 
-    while(turtle && hare && hare->next)
-    {
-        turtle = turtle->next;
-        hare = hare->next->next;
+	turtle = head;
+	hare = head;
 
-        if(turtle == hare)
-        {
-            turtle = head;
-            while(turtle && hare)
-            {
-                if (turtle == hare)
-                    return (turtle);
-                turtle = turtle->next;
-                hare = hare->next;
-            }
-        }
-    }
+	while (turtle && hare && hare->next)
+	{
+		turtle = turtle->next;
+		hare = hare->next->next;
+
+		if (turtle == hare)
+		{
+			turtle = head;
+			while (turtle && hare)
+			{
+				if (turtle == hare)
+					return (turtle);
+				turtle = turtle->next;
+				hare = hare->next;
+			}
+		}
+	}
 
 return (NULL);
 }
