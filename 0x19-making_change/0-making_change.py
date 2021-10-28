@@ -32,10 +32,12 @@ def makeChange(coins, total):
             number_of_coins += 1
             if x == total:
                 return number_of_coins
-        """
-        if idx + 1 < len(filtered_coins):
-            while total - x < filtered_coins[-1]:
-                x -= i
-                number_of_coins -= 1
-        """
+        
+        while total - x < filtered_coins[-1]:
+            x -= i
+            number_of_coins -= 1
+        if x <= 0:
+            return -1
+
     return -1
+
