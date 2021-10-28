@@ -28,14 +28,15 @@ def makeChange(coins, total):
     x = filtered_coins[0]
     for idx, i in enumerate(filtered_coins):
         while total - x >= i:
+            print(x)
             x += i
             number_of_coins += 1
             if x == total:
                 return number_of_coins
-        """
+        
         if idx + 1 < len(filtered_coins):
-            while total - x < filtered_coins[idx + 1]:
+            while total - x < filtered_coins[-1]:
                 x -= i
                 number_of_coins -= 1
-        """
+        
     return -1
