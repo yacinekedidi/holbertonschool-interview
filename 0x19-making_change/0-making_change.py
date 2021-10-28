@@ -15,10 +15,10 @@ def makeChange(coins, total):
         return 1
 
     number_of_coins = 0
-    filtered_coins = list(filter(lambda x: True if x <= total else False , coins))
-    filtered_coins.sort(reverse=True)
+    filter_coins = list(filter(lambda x: True if x <= total else False, coins))
+    filter_coins.sort(reverse=True)
 
-    for i in filtered_coins:
+    for i in filter_coins:
         rest = total // i
         total -= (rest * i)
         number_of_coins += rest
