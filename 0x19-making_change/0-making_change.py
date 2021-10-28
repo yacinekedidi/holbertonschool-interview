@@ -15,14 +15,7 @@ def makeChange(coins, total):
         return 1
 
     number_of_coins = 0
-
-    def is_smaller(num):
-        if num <= total:
-            return True
-        else:
-            return False
-
-    filtered_coins = list(filter(is_smaller, coins))
+    filtered_coins = list(filter(lambda x: True if x <= total else False , coins))
     filtered_coins.sort(reverse=True)
 
     for i in filtered_coins:
@@ -32,3 +25,7 @@ def makeChange(coins, total):
         if total == 0:
             return number_of_coins
     return -1
+
+print(makeChange([1, 2, 25], 37))
+
+print(makeChange([1256, 54, 48, 16, 102], 1453))
