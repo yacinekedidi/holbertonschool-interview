@@ -37,9 +37,3 @@ def makeChange(coins, total):
             number_of_coins -= 1
 
     return -1
-
-print(makeChange([1, 2, 25], 37))
-
-print(makeChange([1256, 54, 48, 16, 102], 1453))
-
-print(makeChange([5,4,3], 11))
