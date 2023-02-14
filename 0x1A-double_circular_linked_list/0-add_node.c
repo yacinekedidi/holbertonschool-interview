@@ -12,7 +12,7 @@ unsigned int _strlen(char *str)
 	unsigned int count = 0;
 
 	if (!str)
-		return (NULL);
+		return (0);
 
 	while (str[count++])
 	;
