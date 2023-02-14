@@ -1,6 +1,54 @@
 #include "list.h"
-#include <stdlib.h>
-#include <string.h>
+
+/**
+ * _strlen - counts characters on a string
+ *
+ * @str: the string to count its number characters
+ *
+ * Return: number of characters on the string
+ */
+unsigned int _strlen(char *str)
+{
+	unsigned int count = 0;
+
+	if (!str)
+		return (NULL);
+
+	while (str[count++])
+	;
+	return (count);
+}
+
+/**
+ * _strdup - produces a copy of a string
+ *
+ * @str: the string to make a copy of
+ *
+ * Return: Address of the new string
+ */
+char *_strdup(char *str)
+{
+	size_t size = sizeof(char) * (_strlen(str) + 1);
+	unsigned int i = 0;
+	char *copy = NULL;
+
+	if (!str)
+		return (NULL);
+
+	copy = malloc(size);
+	if (!copy)
+	{
+		free(copy);
+		return (NULL);
+	}
+	while (str[i])
+	{
+		copy[i] = str[i];
+		i++;
+	}
+	copy[i] = '\0';
+	return (copy);
+}
 
 
 /**
@@ -19,13 +67,9 @@ List *add_node_end(List **list, char *str)
 		return (NULL);
 
 
-	new->str = strdup(str);
+	new->str = _strdup(str);
 	if (!new->str)
-	{
-		free(str);
 		return (NULL);
-	}
-
 	if (!*list)
 	{
 		new->prev = new;
@@ -59,12 +103,9 @@ List *add_node_begin(List **list, char *str)
 	if (!new)
 		return (NULL);
 
-	new->str = strdup(str);
+	new->str = _strdup(str);
 	if (!new->str)
-	{
-		free(str);
 		return (NULL);
-	}
 
 	if (!*list)
 	{

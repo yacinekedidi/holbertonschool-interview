@@ -1,5 +1,7 @@
 #ifndef _LIST_
 #define _LIST_
+#include <stdlib.h>
+
 /**
  * struct List - doubly linked list
  * @str: string - (malloc'ed string)
