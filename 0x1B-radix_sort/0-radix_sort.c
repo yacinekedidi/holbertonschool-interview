@@ -2,7 +2,7 @@
 
 
 /**
- * get_digit_count - computes the power of a number
+ * get_digit_count - calculates the number of digits on a number
  *
  * @x: the number
  *
