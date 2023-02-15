@@ -61,9 +61,9 @@ int get_digit_at(int n, int spot)
  */
 int get_max_digit(int *array, size_t size)
 {
-	unsigned int max = 0, count;
+	unsigned int max = 0, i = 0, count;
 
-	for (unsigned int i = 0; i < size; i++)
+	for (; i < size; i++)
 	{
 		count = get_digit_count(array[i]);
 		if (count > max)
