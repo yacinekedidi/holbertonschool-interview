@@ -84,7 +84,7 @@ int get_max_digit(int *array, size_t size)
  */
 void radix_sort(int *array, size_t size)
 {
-	int current_digit = 0, max_digit, *bucket = NULL;
+	int current_digit = 0, current_digit_value, max_digit, *bucket = NULL;
 	unsigned int i = 0;
 
 	if (size < 2)
@@ -93,7 +93,6 @@ void radix_sort(int *array, size_t size)
 	if (!bucket)
 		return;
 	max_digit = get_max_digit(array, size);
-	int current_digit_value;
 
 	while (max_digit > current_digit)
 	{
