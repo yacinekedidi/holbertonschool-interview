@@ -5,7 +5,7 @@
 
 def is_prime(num):
     """checks if its a prime number
-    
+
     Keyword arguments:
     @num -- number to check
     Return: return True if number is prime otherwise False
@@ -19,7 +19,7 @@ def is_prime(num):
 
 def primes_count(n):
     """counts prime numbers in a given range
-    
+
     Keyword arguments:
     @n -- range number
     Return: return the count of prime numbers in range n
@@ -40,10 +40,10 @@ def isWinner(x, nums):
     and removing that number and its multiples from the set.
     The player that cannot make a move loses the game.
     They play x rounds of the game, where n may be different for each round.
-    Assuming Maria always goes first and both players play optimally, 
+    Assuming Maria always goes first and both players play optimally,
     determine who the winner of each game is.
 
-    
+
     Keyword arguments:
     @x -- the number of rounds they play
     @nums -- an array of n
